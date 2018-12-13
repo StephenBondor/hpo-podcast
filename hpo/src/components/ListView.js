@@ -3,32 +3,61 @@ import {connect} from 'react-redux';
 import {getPodcasts} from '../actions';
 import EpisodeDigest from './EpisodeDigest';
 import styled from 'styled-components';
+import {Loading} from '../App';
 
 const ListViewWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 160px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    margin-top: 280px;
+    @media (max-width: 370px) {
+        margin-top: 420px
+    }
+    @media (max-width: 624px) {
+        margin-top: 340px
+    }
+    
 `;
 
-const ListMenu = styled.div`
+const ListMenu = styled.form`
 	display: flex;
-    justify-content: space-around;
+	justify-content: center;
+	flex-wrap: wrap;
+`;
+
+const FormInput = styled.input`
+	font-size: 1.4rem;
+	height: 4rem;
+	border-radius: 5px;
+	color: black;
+	border: none;
+	padding: 10px;
+	width: 20%;
+	min-width: 250px;
+	margin: 15px;
 `;
 
 const ListContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-    justify-content: center;
+	justify-content: center;
 `;
 
 class ListView extends Component {
 	constructor() {
 		super();
-		this.state = {filter: ''};
+		this.state = {
+			filter: ''
+		};
 	}
 
-	//function needed for search filtering
+	handleChange = event => {
+		this.setState({
+			[event.target.name]: event.target.value
+		});
+	};
+
+	//function for search filtering
 	filterPodcasts() {
 		if (this.state.filter === '') return this.props.episodes;
 		return this.props.episodes.filter(episodes => {
@@ -39,16 +68,29 @@ class ListView extends Component {
 	}
 
 	render() {
+		if (this.props.fetchingPodcast || !this.props.episodes.length)
+			return <Loading> Loading Podcasts...</Loading>;
 		return (
 			<ListViewWrapper>
 				<ListMenu>
-					<p>Fitler by keyword! </p>
-					<p>Filter by Date slider</p>
-                    <p>Sort list by...</p>
+					<FormInput
+						placeholder='Fitler by Keyword'
+						value={this.state.filter}
+						type='text'
+						name='filter'
+						onChange={this.handleChange}
+					/>
+					<FormInput
+						type='month'
+						name='month'
+						placeholder='Choose a Date Range'
+					/>
+					{/* https://stackoverflow.com/questions/4753946/html5-slider-with-two-inputs-possible */}
+					<FormInput placeholder='Sort List by...' />
 				</ListMenu>
 				<ListContainer>
-					{this.props.episodes.map((ep, index) => (
-						<EpisodeDigest episode={ep} key={index} />
+					{this.filterPodcasts().map(ep => (
+						<EpisodeDigest episode={ep} key={ep.guid['#cdata']} />
 					))}
 				</ListContainer>
 			</ListViewWrapper>

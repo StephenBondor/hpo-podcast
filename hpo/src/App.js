@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {getPodcasts} from './actions';
 import {connect} from 'react-redux';
-// import styled from "styled-components";
+import styled from 'styled-components';
 import {GlobalStyle} from './GlobalStyle';
 import {withRouter, Route} from 'react-router-dom';
 import {Header, ListView, EpisodeView} from './components';
+
+export const Loading = styled.div`
+	margin-top: 300px;
+	width: 100%;
+	text-align: center;
+`;
 
 class App extends Component {
 	constructor() {
@@ -32,15 +38,15 @@ class App extends Component {
 
 	render() {
 		// Check to make sure all state is initiallized
-		if (!this.state.OKToRender) return <div> Loading...</div>;
+		if (!this.state.OKToRender) return <Loading> Loading...</Loading>;
 
 		return (
 			<>
 				<GlobalStyle />
 				<div>
-					<Header />
+					<Header {...this.props} />
 					<Route exact path='/' component={ListView} />
-					<Route exact path='/episode/:id' component={EpisodeView} />
+					<Route path='/episode/:id' component={EpisodeView} />
 				</div>
 			</>
 		);

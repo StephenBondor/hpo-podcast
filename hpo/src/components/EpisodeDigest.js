@@ -3,37 +3,48 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 const DigestWrapper = styled(Link)`
-	border: 1px solid black;
+	border: none;
 	width: 20%;
 	margin: 15px;
-    min-width: 250px;
-    padding: 15px;
-    text-decoration: none;
-    color: black;
-    background: white;
-    border-radius: 20px 0px 20px 0px;
-    border-left: 4px solid black;
-    border-bottom: 4px solid black;
+	min-width: 250px;
+	padding: 15px;
+	text-decoration: none;
+	color: black;
+	background: white;
+	box-shadow: 0px 1px 2px 0px #ccc;
+	transition: all 0.2s ease-in-out;
+	:hover {
+		transform: scale(1.01);
+	}
 `;
 
+const Title = styled.h2`
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 5px;
+	text-align: center;
+	color: #000033;
+`;
 
+const Date = styled.div`
+	font-style: italic;
+	font-size: 1.2rem;
+	color: grey;
+`;
 
 class EpisodeDigest extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {filter: ''};
 	}
 	render() {
-		//console.log(this.props.episode)
 		return (
-			<DigestWrapper to='/'>
-				<h2>{this.props.episode.title}</h2>
-				<div>{this.props.episode.pubDate}</div>
-				<div>{this.props.episode['itunes:title']}</div>
+			<DigestWrapper to={`/episode/${this.props.episode.guid['#cdata']}`}>
+				<Title>{this.props.episode.title}</Title>
+				<Date>{this.props.episode.pubDate}</Date>
+
 				{this.props.episode.hasOwnProperty('itunes:summary') ? (
 					<div>
 						...
-						{this.props.episode['itunes:summary'].slice(123, 210)}
+						{this.props.episode['itunes:summary'].slice(123, 250)}
 						...
 					</div>
 				) : (
