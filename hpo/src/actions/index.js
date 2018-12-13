@@ -13,7 +13,7 @@ export const getPodcasts = () => dispatch => {
 	axios
 		.get(`${URL}`)
 		.then(response => {
-			console.log("Fetch succeeded", response);
+			//console.log("Fetch succeeded", response);
             dispatch({ type: FETCH_PODCAST_SUCCESS, payload: response.data });
             dispatch({ type : CONVERT_XML, payload: response.data});
 		})
