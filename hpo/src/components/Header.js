@@ -84,23 +84,25 @@ class Header extends Component {
 	};
 
 	render() {
-
 		return (
 			<HeaderWrapper>
 				<Title as={Link} to='/'>
 					{this.props.jsonState.channel.title}
 				</Title>
 				<Nav>
-					<NavItem
-						as={Link}
-						to='/'
-						>
+					<NavItem as={Link} to='/'>
 						Episodes
 					</NavItem>
-					<NavItem href='http://humanperformanceoutliers.libsyn.com/rss' target="_blank" rel="noopener noreferrer">
+					<NavItem
+						href='http://humanperformanceoutliers.libsyn.com/rss'
+						target='_blank'
+						rel='noopener noreferrer'>
 						Subscribe to RSS
 					</NavItem>
-					<NavItem href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2' target="_blank" rel="noopener noreferrer">
+					<NavItem
+						href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2'
+						target='_blank'
+						rel='noopener noreferrer'>
 						On itunes
 					</NavItem>
 					<NavItem onClick={ev => this.toggleModal(ev, 'aboutModal')}>
@@ -112,12 +114,18 @@ class Header extends Component {
 					</NavItem>
 				</Nav>
 				{this.state.contactModal ? (
-					<Contact toggleModel={this.toggleModal} jsonState={this.props.jsonState}/>
+					<Contact
+						toggleModel={this.toggleModal}
+						jsonState={this.props.jsonState}
+					/>
 				) : (
 					<></>
 				)}
 				{this.state.aboutModal ? (
-					<About toggleModel={this.toggleModal} jsonState={this.props.jsonState}/>
+					<About
+						toggleModel={this.toggleModal}
+						jsonState={this.props.jsonState}
+					/>
 				) : (
 					<></>
 				)}

@@ -51,7 +51,6 @@ class App extends Component {
 
 	render() {
 		// Check to make sure all state is initiallized
-		console.log("App loaded")
 		if (!this.state.OKToRender) return <Loading> Loading...</Loading>;
 
 		return (
@@ -63,7 +62,10 @@ class App extends Component {
 					<Route path='/episode/:id' component={EpisodeView} />
 					<Footer>
 						This is a volunteer, open-source, student redesign of{' '}
-						<a href={this.props.jsonState.channel.link}>
+						<a
+							href={this.props.jsonState.channel.link}
+							target='_blank'
+							rel='noopener noreferrer'>
 							{this.props.jsonState.channel.title}'s&nbsp;libsyn
 							website
 						</a>{' '}

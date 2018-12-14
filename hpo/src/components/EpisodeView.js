@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {setFilter, clearFilter, getPodcasts, forceRerender} from '../actions';
+import {setFilter, forceRerender} from '../actions';
 import {Loading} from '../App';
 import styled from 'styled-components';
 import {MainViewWrapper} from './ListView';
@@ -111,10 +111,6 @@ const SourceLink = styled.div`
 `;
 
 class EpisodeView extends Component {
-	constructor() {
-		super();
-	}
-
 	buttonClick = (ev, filterBy) => {
 		ev.preventDefault();
 		this.props.setFilter(filterBy);
@@ -220,7 +216,6 @@ class EpisodeView extends Component {
 												__html: p
 											}}
 										/>
-										{/* {p} */}
 										<br />
 									</div>
 								))}
@@ -265,12 +260,10 @@ class EpisodeView extends Component {
 }
 
 export default connect(
-	({episodes, jsonState, fetchingPodcast, filter, reRender}) => ({
+	({episodes, fetchingPodcast, reRender}) => ({
 		episodes,
-		jsonState,
 		fetchingPodcast,
-		filter,
 		reRender
 	}),
-	{setFilter, clearFilter, getPodcasts, forceRerender}
+	{setFilter, forceRerender}
 )(EpisodeView);

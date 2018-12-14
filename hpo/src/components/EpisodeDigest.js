@@ -33,9 +33,7 @@ export const Date = styled.div`
 `;
 
 class EpisodeDigest extends Component {
-	constructor(props) {
-		super(props);
-	}
+
 	render() {
 		return (
 			<DigestWrapper

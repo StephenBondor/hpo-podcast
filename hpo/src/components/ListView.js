@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getPodcasts, clearFilter} from '../actions';
+import {clearFilter} from '../actions';
 import EpisodeDigest from './EpisodeDigest';
 import styled from 'styled-components';
 import {Loading} from '../App';
@@ -84,13 +84,19 @@ class ListView extends Component {
 					/>
 				</ListMenu>
 				<ListContainer>
-					{this.filterPodcasts().map(ep=> (
-						<EpisodeDigest
-							episode={ep}
-							key={ep.guid['#cdata']}
-							clearFilter={this.props.clearFilter}
-						/>
-					))}
+					{this.filterPodcasts().length ? (
+						this.filterPodcasts().map(ep => (
+							<EpisodeDigest
+								episode={ep}
+								key={ep.guid['#cdata']}
+								clearFilter={this.props.clearFilter}
+							/>
+						))
+					) : (
+						<div>
+							No Matches. Consider broadening your search...
+						</div>
+					)}
 				</ListContainer>
 			</MainViewWrapper>
 		);
@@ -98,11 +104,10 @@ class ListView extends Component {
 }
 
 export default connect(
-	({episodes, jsonState, fetchingPodcast, filter}) => ({
+	({episodes, fetchingPodcast, filter}) => ({
 		episodes,
-		jsonState,
 		fetchingPodcast,
 		filter
 	}),
-	{getPodcasts, clearFilter}
+	{clearFilter}
 )(ListView);
