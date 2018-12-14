@@ -38,23 +38,27 @@ class EpisodeDigest extends Component {
 	}
 	render() {
 		return (
-			<DigestWrapper to={`/episode/${this.props.episode.guid['#cdata']}`} onClick={()=>this.props.clearFilter()}>
-				<Title>{this.props.episode.title}</Title>
+			<DigestWrapper
+				to={`/episode/${this.props.episode.guid['#cdata']}`}
+				onClick={() => this.props.clearFilter()}>
+				<Title>
+					{this.props.episode.title.split('&amp;').join(' & ')}
+				</Title>
 				<Date>{this.props.episode.pubDate}</Date>
 
 				{this.props.episode.hasOwnProperty('itunes:subtitle') ? (
 					<div>
 						...
-						{this.props.episode['itunes:subtitle']['#cdata'].slice(123, 210)}
+						{this.props.episode['itunes:subtitle']['#cdata'].slice(
+							123,
+							210
+						)}
 						...
 					</div>
 				) : (
 					<div>
 						...
-						{this.props.episode['itunes:summary'].slice(
-							123,
-							210
-						)}
+						{this.props.episode['itunes:summary'].slice(123, 210)}
 						...
 					</div>
 				)}

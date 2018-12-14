@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {setFilter, clearFilter, getPodcasts} from '../actions';
+import {setFilter, clearFilter, getPodcasts, forceRerender} from '../actions';
 import {Loading} from '../App';
 import styled from 'styled-components';
 import {MainViewWrapper} from './ListView';
@@ -40,6 +40,9 @@ const EpisodeFullPlate = styled.div`
 	box-shadow: 0px 1px 2px 0px #ccc;
 	transition: all 0.2s ease-in-out;
 	overflow: hidden;
+	@media (max-width: 650px) {
+		width: 80%;
+	}
 `;
 
 const Title = styled.h2`
@@ -65,6 +68,9 @@ const InfoWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
+	@media (max-width: 500px) {
+		flex-direction: column-reverse;
+	}
 `;
 
 const AudioPlayer = styled.audio`
@@ -76,7 +82,7 @@ const AudioPlayer = styled.audio`
 
 const TagsWrapper = styled.div`
 	margin: 0 15px;
-
+	margin-bottom: 15px;
 	button {
 		border: 1px solid whitesmoke;
 		background: white;
@@ -116,8 +122,12 @@ class EpisodeView extends Component {
 	};
 
 	render() {
-		//Prevent loading an empty state
-		if (this.props.fetchingPodcast || !this.props.episodes.length)
+		//Prevent loading an empty state, or a rerendering state
+		if (
+			this.props.fetchingPodcast ||
+			!this.props.episodes.length ||
+			this.props.reRender
+		)
 			return <Loading> Loading Podcasts...</Loading>;
 
 		//Find the episode at this address
@@ -147,22 +157,26 @@ class EpisodeView extends Component {
 				return val.replace(/<\/?p>/g, '').replace(/\\/g, '');
 			});
 
+		//Parse the title to display "&" correctly
+		const betterTitle = episode.title.split('&amp;').join(' & ');
+
 		//Parse the MP3 address to pass to the MP3 player
 		const mp3 = episode.enclosure.url.substr(
 			0,
-			episode.enclosure.url.indexOf('.mp3') + 4
+			episode.enclosure.url.lastIndexOf('.mp3') + 4
 		);
-
+		console.log(episode);
 		return (
 			<NavWrapper>
 				<NavLink
 					to={previousKey}
 					as={Link}
-					onClick={() => this.props.getPodcasts()}>
+					onClick={() => this.props.forceRerender()}>
 					{'<'}
 				</NavLink>
 				<EpisodeFullPlate>
-					<Title>{episode.title}</Title>
+					{/* need to get  " &amp; " out of titles */}
+					<Title>{betterTitle}</Title>
 					<AudioPlayer controls location={this.props.location}>
 						<source src={mp3} type='audio/mpeg' />
 						<p>
@@ -177,15 +191,28 @@ class EpisodeView extends Component {
 							{allParagraphs
 								.filter(
 									p =>
-										p.trim() !== 'Find us:' &&
 										p.trim() !== 'Consults:' &&
 										p.trim() !== 'Contact us:' &&
 										p.trim() !==
 											'Contact Us: hpopodcast@gmail.com' &&
 										p.trim() !== 'HPO Patreon:' &&
-										p.trim() !== 'Find Ted:' &&
-										p.trim() !== 'Find Shawn:' &&
-										p.trim() !== 'Find Zach:'
+										p.trim() !==
+											'Consider supporting us:' &&
+										!RegExp('^(Find w*)', 'gm').test(
+											p.trim()
+										) &&
+										// !RegExp('Find \w*', 'g').test(p.trim()) &&
+										p.trim() !== 'HPO Patreon' &&
+										p.trim() !==
+											'Butcher Box Discount Code: HPO' &&
+										p.trim() !==
+											'<a href="thrivemarket.com/hpo">Thrive: thrivemarket.com/hpo</a>' &&
+										p.trim() !==
+											'<a href="https://www.butcherbox.com/">Butcher Box</a> Discount Code: HPO' &&
+										p.trim() !==
+											'<a href="http://patreon.com/hpopodcast">Patreon</a>: patreon.com/hpopodcast' &&
+										p.trim() !==
+											'<a href="http://butcherbox.com">Butcherbox</a>: code (HPO)'
 								)
 								.map((p, index) => (
 									<div key={index}>
@@ -211,21 +238,25 @@ class EpisodeView extends Component {
 
 					<TagsWrapper>
 						Tags:{' '}
-						{episode['itunes:keywords']
-							.split(',')
-							.map((tag, index) => (
-								<button
-									key={index}
-									onClick={ev => this.buttonClick(ev, tag)}>
-									{tag}
-								</button>
-							))}
+						{episode['itunes:keywords'] !== null
+							? episode['itunes:keywords']
+									.split(',')
+									.map((tag, index) => (
+										<button
+											key={index}
+											onClick={ev =>
+												this.buttonClick(ev, tag)
+											}>
+											{tag}
+										</button>
+									))
+							: ''}
 					</TagsWrapper>
 				</EpisodeFullPlate>
 				<NavLink
 					to={nextKey}
 					as={Link}
-					onClick={() => this.props.getPodcasts()}>
+					onClick={() => this.props.forceRerender()}>
 					{'>'}
 				</NavLink>
 			</NavWrapper>
@@ -234,11 +265,12 @@ class EpisodeView extends Component {
 }
 
 export default connect(
-	({episodes, jsonState, fetchingPodcast, filter}) => ({
+	({episodes, jsonState, fetchingPodcast, filter, reRender}) => ({
 		episodes,
 		jsonState,
 		fetchingPodcast,
-		filter
+		filter,
+		reRender
 	}),
-	{setFilter, clearFilter, getPodcasts}
+	{setFilter, clearFilter, getPodcasts, forceRerender}
 )(EpisodeView);

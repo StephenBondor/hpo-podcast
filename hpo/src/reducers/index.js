@@ -4,7 +4,9 @@ import {
 	FETCH_PODCAST_FAILURE,
 	CONVERT_XML,
 	SET_FILTER,
-	CLEAR_FILTER
+	CLEAR_FILTER,
+	FORCE_RENDER,
+	FORCE_ALLOW_RENDER
 } from '../actions';
 
 //Initial State
@@ -12,7 +14,8 @@ const initialState = {
 	fetchingPodcast: false,
 	episodes: [],
 	jsonState: {},
-	filter: ''
+	filter: '',
+	reRender: false
 };
 
 //Change xmlsString to XML
@@ -240,6 +243,16 @@ const hpoReducer = (state = initialState, action) => {
 			return {
 				...state,
 				filter: ''
+			};
+		case FORCE_RENDER:
+			return {
+				...state,
+				reRender: true
+			};
+		case FORCE_ALLOW_RENDER:
+			return {
+				...state,
+				reRender: false
 			};
 		default:
 			return state;

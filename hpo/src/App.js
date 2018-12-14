@@ -16,8 +16,9 @@ const Footer = styled.h3`
 	width: 60%;
 	margin: 20px auto;
 	text-align: center;
+	color: grey;
 	a {
-		color: black;
+		color: grey;
 		:hover {
 			color: #777;
 		}
@@ -60,7 +61,7 @@ class App extends Component {
 					<Route exact path='/' component={ListView} />
 					<Route path='/episode/:id' component={EpisodeView} />
 					<Footer>
-						This is a volunteer, open-source student redesign of{' '}
+						This is a volunteer, open-source, student redesign of{' '}
 						<a href={this.props.jsonState.channel.link}>
 							{this.props.jsonState.channel.title}'s&nbsp;libsyn
 							website

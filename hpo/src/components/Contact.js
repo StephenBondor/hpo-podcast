@@ -17,6 +17,7 @@ export const InfoPlate = styled.div`
 	margin: 15px auto;
 	min-width: 270px;
 	padding: 15px;
+	padding-bottom: 30px;
 	text-decoration: none;
 	color: black;
 	background: white;

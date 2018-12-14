@@ -95,7 +95,8 @@ class Header extends Component {
 					<NavItem
 						as={Link}
 						to='/'
-						onClick={() => this.props.getPodcasts()}>
+						// onClick={() => this.props.getPodcasts()}
+						>
 						Episodes
 					</NavItem>
 					<NavItem href='http://humanperformanceoutliers.libsyn.com/rss'>

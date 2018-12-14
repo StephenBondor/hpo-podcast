@@ -10,6 +10,7 @@ export const MainViewWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	margin-top: 250px;
+	padding: 0 10px;
 	@media (max-width: 410px) {
 		margin-top: 290px;
 	}
