@@ -51,6 +51,7 @@ class App extends Component {
 
 	render() {
 		// Check to make sure all state is initiallized
+		console.log("App loaded")
 		if (!this.state.OKToRender) return <Loading> Loading...</Loading>;
 
 		return (
