@@ -215,12 +215,12 @@ class EpisodeView extends Component {
 								)
 								.map((p, index) => (
 									<div key={index}>
-										{/* <div
+										<div
 											dangerouslySetInnerHTML={{
 												__html: p
 											}}
-										/> */}
-										{p}
+										/>
+										{/* {p} */}
 										<br />
 									</div>
 								))}

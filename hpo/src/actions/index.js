@@ -14,7 +14,7 @@ export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const FORCE_RENDER = 'FORCE_RENDER';
 export const FORCE_ALLOW_RENDER = 'FORCE_ALLOW_RENDER';
 
-const URL = 'http://humanperformanceoutliers.libsyn.com/rss';
+const URL = 'https://humanperformanceoutliers.libsyn.com/rss';
 
 export const getPodcasts = () => dispatch => {
 	dispatch({type: FETCH_PODCAST_START});
