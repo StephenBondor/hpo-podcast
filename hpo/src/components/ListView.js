@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getPodcasts} from '../actions';
+import {getPodcasts, clearFilter} from '../actions';
 import EpisodeDigest from './EpisodeDigest';
 import styled from 'styled-components';
 import {Loading} from '../App';
 
-const ListViewWrapper = styled.div`
+export const MainViewWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-    margin-top: 280px;
-    @media (max-width: 370px) {
-        margin-top: 420px
-    }
-    @media (max-width: 624px) {
-        margin-top: 340px
-    }
-    
+	margin-top: 250px;
+	@media (max-width: 410px) {
+		margin-top: 290px;
+	}
+	@media (max-width: 370px) {
+		margin-top: 340px;
+	}
 `;
 
 const ListMenu = styled.form`
@@ -44,10 +43,12 @@ const ListContainer = styled.div`
 `;
 
 class ListView extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			filter: ''
+			filter: !this.props.filter ? '' : this.props.filter,
+			previousKey: '',
+			nextKey: ''
 		};
 	}
 
@@ -71,7 +72,7 @@ class ListView extends Component {
 		if (this.props.fetchingPodcast || !this.props.episodes.length)
 			return <Loading> Loading Podcasts...</Loading>;
 		return (
-			<ListViewWrapper>
+			<MainViewWrapper>
 				<ListMenu>
 					<FormInput
 						placeholder='Fitler by Keyword'
@@ -80,29 +81,27 @@ class ListView extends Component {
 						name='filter'
 						onChange={this.handleChange}
 					/>
-					<FormInput
-						type='month'
-						name='month'
-						placeholder='Choose a Date Range'
-					/>
-					{/* https://stackoverflow.com/questions/4753946/html5-slider-with-two-inputs-possible */}
-					<FormInput placeholder='Sort List by...' />
 				</ListMenu>
 				<ListContainer>
-					{this.filterPodcasts().map(ep => (
-						<EpisodeDigest episode={ep} key={ep.guid['#cdata']} />
+					{this.filterPodcasts().map(ep=> (
+						<EpisodeDigest
+							episode={ep}
+							key={ep.guid['#cdata']}
+							clearFilter={this.props.clearFilter}
+						/>
 					))}
 				</ListContainer>
-			</ListViewWrapper>
+			</MainViewWrapper>
 		);
 	}
 }
 
 export default connect(
-	({episodes, jsonState, fetchingPodcast}) => ({
+	({episodes, jsonState, fetchingPodcast, filter}) => ({
 		episodes,
 		jsonState,
-		fetchingPodcast
+		fetchingPodcast,
+		filter
 	}),
-	{getPodcasts}
+	{getPodcasts, clearFilter}
 )(ListView);

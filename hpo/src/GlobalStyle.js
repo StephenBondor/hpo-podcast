@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
 		line-height: 190%;
 	}
 
-	body {
+	body, button {
 		font-size: 1.6rem;
 		box-sizing: border-box;
 		font-family: "Iowan Old Style", "Times New Roman",

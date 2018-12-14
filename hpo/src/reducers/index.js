@@ -2,7 +2,9 @@ import {
 	FETCH_PODCAST_START,
 	FETCH_PODCAST_SUCCESS,
 	FETCH_PODCAST_FAILURE,
-	CONVERT_XML
+	CONVERT_XML,
+	SET_FILTER,
+	CLEAR_FILTER
 } from '../actions';
 
 //Initial State
@@ -225,13 +227,20 @@ const hpoReducer = (state = initialState, action) => {
 		case CONVERT_XML:
 			return {
 				...state,
-				// jsonState: xmlToJson(xmlStrToXML(action.payload)),
-				// episodes: xmlToJson(xmlStrToXML(action.payload)).rss.channel.item,
 				jsonState: xml2obj(action.payload),
 				episodes: xml2obj(action.payload).channel.item,
 				fetchingPodcast: false
 			};
-
+		case SET_FILTER:
+			return {
+				...state,
+				filter: action.payload
+			};
+		case CLEAR_FILTER:
+			return {
+				...state,
+				filter: ''
+			};
 		default:
 			return state;
 	}

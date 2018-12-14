@@ -26,26 +26,21 @@ const Title = styled.h1`
 	color: #000033;
 	font-size: 5rem;
 	margin: 25px;
-    text-decoration: none;
-    max-width: 400px;
-    line-height: 50px;
+	margin-bottom: 5px;
+	text-decoration: none;
+	max-width: 400px;
+	line-height: 50px;
 	:hover {
 		color: #777;
 	}
 `;
 
-const SubTitle = styled.h3`
-	a {
-		color: black;
-		:hover {
-			color: #777;
-		}
-	}
-`;
-
 const Nav = styled.nav`
+	margin-top: 0;
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-bottom: 10px;
 `;
 
 const NavItem = styled.a`
@@ -90,22 +85,25 @@ class Header extends Component {
 	};
 
 	render() {
-		const title = this.props.jsonState.channel.title;
+
 		return (
 			<HeaderWrapper>
 				<Title as={Link} to='/'>
-					{title}
+					{this.props.jsonState.channel.title}
 				</Title>
-				<SubTitle>
-					This is a volunteer student redesign of{' '}
-					<a href={this.props.jsonState.channel.link}>
-						{title}'s&nbsp;libsyn website
-					</a>
-				</SubTitle>
 				<Nav>
-					<NavItem as={Link} to="/" onClick={()=>this.props.getPodcasts()}>Episodes</NavItem>
-					<NavItem href="http://humanperformanceoutliers.libsyn.com/rss">Subscribe to RSS</NavItem>
-					<NavItem href="https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2">On itunes</NavItem>
+					<NavItem
+						as={Link}
+						to='/'
+						onClick={() => this.props.getPodcasts()}>
+						Episodes
+					</NavItem>
+					<NavItem href='http://humanperformanceoutliers.libsyn.com/rss'>
+						Subscribe to RSS
+					</NavItem>
+					<NavItem href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2'>
+						On itunes
+					</NavItem>
 					<NavItem onClick={ev => this.toggleModal(ev, 'aboutModal')}>
 						About
 					</NavItem>
@@ -115,12 +113,12 @@ class Header extends Component {
 					</NavItem>
 				</Nav>
 				{this.state.contactModal ? (
-					<Contact toggleModel={this.toggleModal} />
+					<Contact toggleModel={this.toggleModal} jsonState={this.props.jsonState}/>
 				) : (
 					<></>
 				)}
 				{this.state.aboutModal ? (
-					<About toggleModel={this.toggleModal} />
+					<About toggleModel={this.toggleModal} jsonState={this.props.jsonState}/>
 				) : (
 					<></>
 				)}

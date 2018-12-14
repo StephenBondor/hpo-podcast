@@ -13,6 +13,7 @@ const DigestWrapper = styled(Link)`
 	background: white;
 	box-shadow: 0px 1px 2px 0px #ccc;
 	transition: all 0.2s ease-in-out;
+	overflow: hidden;
 	:hover {
 		transform: scale(1.01);
 	}
@@ -25,7 +26,7 @@ const Title = styled.h2`
 	color: #000033;
 `;
 
-const Date = styled.div`
+export const Date = styled.div`
 	font-style: italic;
 	font-size: 1.2rem;
 	color: grey;
@@ -37,20 +38,20 @@ class EpisodeDigest extends Component {
 	}
 	render() {
 		return (
-			<DigestWrapper to={`/episode/${this.props.episode.guid['#cdata']}`}>
+			<DigestWrapper to={`/episode/${this.props.episode.guid['#cdata']}`} onClick={()=>this.props.clearFilter()}>
 				<Title>{this.props.episode.title}</Title>
 				<Date>{this.props.episode.pubDate}</Date>
 
-				{this.props.episode.hasOwnProperty('itunes:summary') ? (
+				{this.props.episode.hasOwnProperty('itunes:subtitle') ? (
 					<div>
 						...
-						{this.props.episode['itunes:summary'].slice(123, 250)}
+						{this.props.episode['itunes:subtitle']['#cdata'].slice(123, 210)}
 						...
 					</div>
 				) : (
 					<div>
 						...
-						{this.props.episode['itunes:subtitle']['#cdata'].slice(
+						{this.props.episode['itunes:summary'].slice(
 							123,
 							210
 						)}

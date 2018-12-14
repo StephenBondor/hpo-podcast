@@ -12,6 +12,18 @@ export const Loading = styled.div`
 	text-align: center;
 `;
 
+const Footer = styled.h3`
+	width: 60%;
+	margin: 20px auto;
+	text-align: center;
+	a {
+		color: black;
+		:hover {
+			color: #777;
+		}
+	}
+`;
+
 class App extends Component {
 	constructor() {
 		super();
@@ -47,6 +59,18 @@ class App extends Component {
 					<Header {...this.props} />
 					<Route exact path='/' component={ListView} />
 					<Route path='/episode/:id' component={EpisodeView} />
+					<Footer>
+						This is a volunteer, open-source student redesign of{' '}
+						<a href={this.props.jsonState.channel.link}>
+							{this.props.jsonState.channel.title}'s&nbsp;libsyn
+							website
+						</a>{' '}
+						&nbsp;
+						<a href='https://github.com/StephenBondor/hpo-podcast'>
+							Our source on GitHub
+						</a>{' '}
+						contributors welcome!
+					</Footer>
 				</div>
 			</>
 		);

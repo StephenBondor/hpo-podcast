@@ -14,19 +14,21 @@ export const FullDiv = styled.div`
 export const InfoPlate = styled.div`
 	border: none;
 	width: 40%;
-	margin: 15px;
-	min-width: 250px;
+	margin: 15px auto;
+	min-width: 270px;
 	padding: 15px;
 	text-decoration: none;
 	color: black;
 	background: white;
 	box-shadow: 0px 1px 2px 0px #ccc;
-	transition: all 0.3s ease-in-out;
 	position: relative;
 	z-index: 20;
-	left: 30%;
-	right: 30%;
 	top: 10%;
+	* {
+		a {
+			color: black;
+		}
+	}
 `;
 
 export const Title = styled.h2`
@@ -39,6 +41,12 @@ export const Text = styled.div`
 	font-style: italic;
 	font-size: 1.2rem;
 	color: grey;
+`;
+
+const Section = styled.div``;
+
+const Name = styled.h3`
+	margin-top: 10px;
 `;
 
 class Contact extends Component {
@@ -55,8 +63,77 @@ class Contact extends Component {
 					onClick={ev => {
 						this.props.toggleModel(ev, 'oops!!');
 					}}>
-					<Title>hello from contacts</Title>
-					<Text>Text</Text>
+					<Title>Contact</Title>
+					<Section>
+						<Name>Sponsors</Name>
+						<a href='http://butcherbox.com/'>Butcherbox</a> Code:
+						"HPO" <br />
+						<a href='http://thrivemarket.com/hpo'>
+							thrivemarket.com/hpo
+						</a>
+						<br />
+						<a href='https://www.patreon.com/HPOpodcast'>
+							Patreon: HPO Podcast
+						</a>
+						<br />
+					</Section>
+					<Section>
+						<Name>Shawn Baker, MD</Name>
+						Instagram:{' '}
+						<a href='https://www.instagram.com/shawnbaker1967/'>
+							@shawnbaker1967
+						</a>{' '}
+						<br />
+						Twitter:{' '}
+						<a href='https://twitter.com/SBakerMD'>
+							@SBakerMD
+						</a>{' '}
+						<br />
+						Websites:{' '}
+						<a href='https://www.shawn-baker.com/'>
+							shawn-baker.com
+						</a>
+						<br />
+						<a href='https://www.meatheals.com'>meatheals.com</a>
+						<br />
+						Consults:{' '}
+						<a href='https://carnivoretrainingsystem.mykajabi.com/p/cts-landing-page'>
+							Carnivore Training Systems
+						</a>
+						<br />
+					</Section>
+					<Section>
+						<Name>Zach Bitter</Name>
+						Instagram:{' '}
+						<a href='https://www.instagram.com/zachbitter/'>
+							@zachbitter
+						</a>
+						<br />
+						Twitter:{' '}
+						<a href='https://twitter.com/zbitter'>@zbitter</a>
+						<br />
+						Facebook:{' '}
+						<a href='https://www.facebook.com/zbitter'>
+							@zach.bitter
+						</a>
+						<br />
+						YouTube:{' '}
+						<a href='https://www.youtube.com/channel/UCmTH6Cz_j8eYq8oiOHDoTXg/featured'> Zach Bitter</a>
+						Website:{' '}
+						<a href='http://zachbitter.com/'>zachbitter.com</a>
+						<br />
+						Consults:{' '}
+						<a href='https://calendly.com/zbittercoaching'>
+							calendly.com/zbittercoaching
+						</a>
+						<br />
+					</Section>
+					<Name>Email</Name>
+					<Section>
+						<a href='mailto:hpopodcast@gmail.com'>
+							hpopodcast@gmail.com
+						</a>
+					</Section>
 				</InfoPlate>
 			</FullDiv>
 		);
