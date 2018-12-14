@@ -9,6 +9,7 @@ export const FullDiv = styled.div`
 	right: 0%;
 	width: 100%;
 	height: 100vh;
+	background-color: rgba(100, 100, 100, 0.2);
 `;
 
 export const InfoPlate = styled.div`
@@ -67,13 +68,13 @@ class Contact extends Component {
 					<Title>Contact</Title>
 					<Section>
 						<Name>Sponsors</Name>
-						<a href='http://butcherbox.com/'>Butcherbox</a> Code:
+						<a href='http://butcherbox.com/' target="_blank" rel="noopener noreferrer">Butcherbox</a> Code:
 						"HPO" <br />
-						<a href='http://thrivemarket.com/hpo'>
+						<a href='http://thrivemarket.com/hpo' target="_blank" rel="noopener noreferrer">
 							thrivemarket.com/hpo
 						</a>
 						<br />
-						<a href='https://www.patreon.com/HPOpodcast'>
+						<a href='https://www.patreon.com/HPOpodcast' target="_blank" rel="noopener noreferrer">
 							Patreon: HPO Podcast
 						</a>
 						<br />
@@ -81,24 +82,24 @@ class Contact extends Component {
 					<Section>
 						<Name>Shawn Baker, MD</Name>
 						Instagram:{' '}
-						<a href='https://www.instagram.com/shawnbaker1967/'>
+						<a href='https://www.instagram.com/shawnbaker1967/' target="_blank" rel="noopener noreferrer">
 							@shawnbaker1967
 						</a>{' '}
 						<br />
 						Twitter:{' '}
-						<a href='https://twitter.com/SBakerMD'>
+						<a href='https://twitter.com/SBakerMD' target="_blank" rel="noopener noreferrer">
 							@SBakerMD
 						</a>{' '}
 						<br />
 						Websites:{' '}
-						<a href='https://www.shawn-baker.com/'>
+						<a href='https://www.shawn-baker.com/' target="_blank" rel="noopener noreferrer">
 							shawn-baker.com
 						</a>
 						<br />
-						<a href='https://www.meatheals.com'>meatheals.com</a>
+						<a href='https://www.meatheals.com' target="_blank" rel="noopener noreferrer">meatheals.com</a>
 						<br />
 						Consults:{' '}
-						<a href='https://carnivoretrainingsystem.mykajabi.com/p/cts-landing-page'>
+						<a href='https://carnivoretrainingsystem.mykajabi.com/p/cts-landing-page' target="_blank" rel="noopener noreferrer">
 							Carnivore Training Systems
 						</a>
 						<br />
@@ -106,25 +107,25 @@ class Contact extends Component {
 					<Section>
 						<Name>Zach Bitter</Name>
 						Instagram:{' '}
-						<a href='https://www.instagram.com/zachbitter/'>
+						<a href='https://www.instagram.com/zachbitter/' target="_blank" rel="noopener noreferrer">
 							@zachbitter
 						</a>
 						<br />
 						Twitter:{' '}
-						<a href='https://twitter.com/zbitter'>@zbitter</a>
+						<a href='https://twitter.com/zbitter' target="_blank" rel="noopener noreferrer">@zbitter</a>
 						<br />
 						Facebook:{' '}
-						<a href='https://www.facebook.com/zbitter'>
+						<a href='https://www.facebook.com/zbitter' target="_blank" rel="noopener noreferrer">
 							@zach.bitter
 						</a>
 						<br />
 						YouTube:{' '}
-						<a href='https://www.youtube.com/channel/UCmTH6Cz_j8eYq8oiOHDoTXg/featured'> Zach Bitter</a>
+						<a href='https://www.youtube.com/channel/UCmTH6Cz_j8eYq8oiOHDoTXg/featured' target="_blank" rel="noopener noreferrer"> Zach Bitter</a>
 						Website:{' '}
-						<a href='http://zachbitter.com/'>zachbitter.com</a>
+						<a href='http://zachbitter.com/' target="_blank" rel="noopener noreferrer">zachbitter.com</a>
 						<br />
 						Consults:{' '}
-						<a href='https://calendly.com/zbittercoaching'>
+						<a href='https://calendly.com/zbittercoaching' target="_blank" rel="noopener noreferrer">
 							calendly.com/zbittercoaching
 						</a>
 						<br />
@@ -134,6 +135,7 @@ class Contact extends Component {
 						<a href='mailto:hpopodcast@gmail.com'>
 							hpopodcast@gmail.com
 						</a>
+
 					</Section>
 				</InfoPlate>
 			</FullDiv>

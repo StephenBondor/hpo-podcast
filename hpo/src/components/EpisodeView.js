@@ -165,7 +165,7 @@ class EpisodeView extends Component {
 			0,
 			episode.enclosure.url.lastIndexOf('.mp3') + 4
 		);
-		console.log(episode);
+
 		return (
 			<NavWrapper>
 				<NavLink
@@ -175,7 +175,6 @@ class EpisodeView extends Component {
 					{'<'}
 				</NavLink>
 				<EpisodeFullPlate>
-					{/* need to get  " &amp; " out of titles */}
 					<Title>{betterTitle}</Title>
 					<AudioPlayer controls location={this.props.location}>
 						<source src={mp3} type='audio/mpeg' />

@@ -64,7 +64,6 @@ class Header extends Component {
 	}
 
 	toggleModal = (ev, toggle) => {
-		ev.preventDefault();
 		ev.stopPropagation();
 		if (!this.state.anyModal) {
 			this.setState({
@@ -95,14 +94,13 @@ class Header extends Component {
 					<NavItem
 						as={Link}
 						to='/'
-						// onClick={() => this.props.getPodcasts()}
 						>
 						Episodes
 					</NavItem>
-					<NavItem href='http://humanperformanceoutliers.libsyn.com/rss'>
+					<NavItem href='http://humanperformanceoutliers.libsyn.com/rss' target="_blank" rel="noopener noreferrer">
 						Subscribe to RSS
 					</NavItem>
-					<NavItem href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2'>
+					<NavItem href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2' target="_blank" rel="noopener noreferrer">
 						On itunes
 					</NavItem>
 					<NavItem onClick={ev => this.toggleModal(ev, 'aboutModal')}>
