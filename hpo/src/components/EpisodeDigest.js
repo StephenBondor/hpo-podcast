@@ -6,7 +6,7 @@ const DigestWrapper = styled(Link)`
 	border: none;
 	width: 20%;
 	margin: 15px;
-	min-width: 250px;
+	min-width: 225px;
 	padding: 15px;
 	text-decoration: none;
 	color: black;
@@ -17,6 +17,15 @@ const DigestWrapper = styled(Link)`
 	:hover {
 		transform: scale(1.01);
 	}
+	@media (max-width: 784px) {
+		width: 45%;
+	}
+	@media (max-width: 618px) {
+		width: 95%;
+	}
+	@media (max-width: 361px) {
+		
+	}
 `;
 
 const Title = styled.h2`
@@ -24,6 +33,7 @@ const Title = styled.h2`
 	padding-bottom: 5px;
 	text-align: center;
 	color: #000033;
+	
 `;
 
 export const Date = styled.div`

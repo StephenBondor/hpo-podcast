@@ -9,13 +9,20 @@ export const MainViewWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-top: 250px;
+	margin-top: 145px;
 	padding: 0 10px;
-	@media (max-width: 410px) {
-		margin-top: 290px;
+	
+	@media (max-width: 639px) {
+		margin-top: 120px;
 	}
-	@media (max-width: 370px) {
-		margin-top: 340px;
+	@media (max-width: 470px) {
+		margin-top: 170px;
+	}
+	@media (max-width: 468px) {
+		margin-top: 100px;
+	}
+	@media (max-width: 361px) {
+		margin-top: 135px;
 	}
 `;
 

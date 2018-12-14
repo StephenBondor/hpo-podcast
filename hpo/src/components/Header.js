@@ -28,10 +28,23 @@ const Title = styled.h1`
 	margin: 25px;
 	margin-bottom: 5px;
 	text-decoration: none;
-	max-width: 400px;
 	line-height: 50px;
+
 	:hover {
 		color: #777;
+	}
+	@media (max-width: 783px) {
+		font-size: 4rem;
+	}
+	@media (max-width: 639px) {
+		font-size: 3rem;
+		margin: 15px;
+		margin-bottom: 0px;
+	}
+	@media (max-width: 469px) {
+		font-size: 2rem;
+		margin: 5px;
+		margin-bottom: 0px;
 	}
 `;
 
@@ -41,6 +54,13 @@ const Nav = styled.nav`
 	justify-content: space-around;
 	flex-wrap: wrap;
 	margin-bottom: 10px;
+
+	@media (max-width: 639px) {
+		margin-bottom: 0px;
+	}
+	@media (max-width: 469px) {
+		margin: 0px;
+	}
 `;
 
 const NavItem = styled.a`
@@ -50,6 +70,9 @@ const NavItem = styled.a`
 	:hover {
 		color: #777;
 		cursor: pointer;
+	}
+	@media (max-width: 469px) {
+		margin: 5px;
 	}
 `;
 
