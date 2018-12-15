@@ -24,6 +24,9 @@ export const MainViewWrapper = styled.div`
 	@media (max-width: 361px) {
 		margin-top: 135px;
 	}
+	@media (max-width: 302px) {
+		margin-top: 155px;
+	}
 `;
 
 const ListMenu = styled.form`
