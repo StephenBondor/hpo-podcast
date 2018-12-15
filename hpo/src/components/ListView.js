@@ -12,20 +12,29 @@ export const MainViewWrapper = styled.div`
 	margin-top: 145px;
 	padding: 0 10px;
 	
+	@media (max-width: 887px) {
+		margin-top: 200px;
+	}
+	@media (max-width: 783px){
+		margin-top: 150px;
+	}
+	@media (max-width: 720px){
+		margin-top: 200px;
+	}
 	@media (max-width: 639px) {
 		margin-top: 120px;
 	}
-	@media (max-width: 470px) {
-		margin-top: 170px;
+	@media (max-width: 533px) {
+		margin-top: 175px;
 	}
-	@media (max-width: 468px) {
+	@media (max-width: 469px) {
 		margin-top: 100px;
 	}
-	@media (max-width: 361px) {
-		margin-top: 135px;
+	@media (max-width: 375px) {
+		margin-top: 130px;
 	}
-	@media (max-width: 302px) {
-		margin-top: 155px;
+	@media (max-width: 345px) {
+		margin-top: 180px;
 	}
 `;
 

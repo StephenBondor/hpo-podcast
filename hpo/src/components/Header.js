@@ -72,7 +72,7 @@ const NavItem = styled.a`
 		cursor: pointer;
 	}
 	@media (max-width: 469px) {
-		margin: 4px;
+		margin: 3px;
 	}
 `;
 
