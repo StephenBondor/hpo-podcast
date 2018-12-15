@@ -7,6 +7,7 @@ const DigestWrapper = styled(Link)`
 	width: 20%;
 	margin: 15px;
 	min-width: 225px;
+	max-width: 300px;
 	padding: 15px;
 	text-decoration: none;
 	color: black;
@@ -19,12 +20,11 @@ const DigestWrapper = styled(Link)`
 	}
 	@media (max-width: 784px) {
 		width: 45%;
+		max-width: none;
 	}
 	@media (max-width: 618px) {
 		width: 95%;
-	}
-	@media (max-width: 361px) {
-		
+		max-width: none;
 	}
 `;
 
@@ -60,13 +60,13 @@ class EpisodeDigest extends Component {
 						{this.props.episode['itunes:subtitle']['#cdata'].slice(
 							123,
 							210
-						)}
+						).split('\\').join('') }
 						...
 					</div>
 				) : (
 					<div>
 						...
-						{this.props.episode['itunes:summary'].slice(123, 210)}
+						{this.props.episode['itunes:summary'].slice(123, 210).split('\\').join('') }
 						...
 					</div>
 				)}
