@@ -120,7 +120,7 @@ class Header extends Component {
 						href='http://humanperformanceoutliers.libsyn.com/rss'
 						target='_blank'
 						rel='noopener noreferrer'>
-						Subscribe to RSS
+						RSS
 					</NavItem>
 					<NavItem
 						href='https://itunes.apple.com/us/podcast/human-performance-outliers-podcast/id1363389413?mt=2'
