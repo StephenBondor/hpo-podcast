@@ -186,6 +186,7 @@ class EpisodeView extends Component {
 							{allParagraphs
 								.filter(
 									p =>
+										p.trim() !== 'Show Sponsors:' &&
 										p.trim() !== 'Consults:' &&
 										p.trim() !== 'Contact us:' &&
 										p.trim() !==

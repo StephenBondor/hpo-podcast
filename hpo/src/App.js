@@ -7,7 +7,8 @@ import {withRouter, Route} from 'react-router-dom';
 import {Header, ListView, EpisodeView} from './components';
 
 export const Loading = styled.div`
-	margin-top: 300px;
+	margin-top: 200px;
+	margin-bottom: 200px;
 	width: 100%;
 	text-align: center;
 `;

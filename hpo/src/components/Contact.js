@@ -87,6 +87,14 @@ class Contact extends Component {
 							Patreon: HPO Podcast
 						</a>
 						<br />
+						<a
+							href='https://fatsnax.com/pages/hpo'
+							target='_blank'
+							rel='noopener noreferrer'>
+							Fatsnax.com
+						</a>{' '}
+						(@eatfatsnax)
+						<br />
 					</Section>
 					<Section>
 						<Name>Shawn Baker, MD</Name>
