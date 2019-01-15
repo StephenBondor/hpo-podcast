@@ -26,9 +26,9 @@ The site is under continuous deployment at
 
 * This is a rebuild of [http://humanperformanceoutliers.libsyn.com](http://humanperformanceoutliers.libsyn.com)
 
-* Almost all the information on the site is populated from the RSS feed. This means _no action_ is needed on development end or content creation end to keep this site continually up to date. The site will automatically read those feeds and update. I haven’t learned back end yet, so I couldn’t even make a new content management system for you if I wanted.
+* Almost all the information on the site is populated from the RSS feed. This means _no action_ is needed on development end or content creation end to keep this site continually up to date. The site will automatically read those feeds and update. I haven’t learned back end yet, so I couldn’t even make a new content management system if I wanted.
 
-* The show notes are fragile. Some of the content that is attached to some of the episodes does not display. This is the result of a compromise between my ability and keeping the site clean and neat. If you like the site and want to use it, the best way to get the meta data out with it is to include links in paragraph from. So, say something like “Dr. XYZ can be reached at @twitterHandle ” all in one line, and do not use a new paragraph with a link like: 
+* The show notes are fragile. Some of the content that is attached to some of the episodes does not display (namely, there is an issue displaying links once converted from c-data in a xml dump to json). This is the result of a compromise between my ability and keeping the site clean and neat. The best way to get the meta data out with it is to include links in paragraph from, or to add them tot he contact info. So, something like “Dr. XYZ can be reached at @twitterHandle and have a book on amazon” all inline, and not a new paragraph with a link like: 
 >	
 >	Find XYZ: 
 >
