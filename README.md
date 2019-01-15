@@ -16,15 +16,17 @@ But I hope it's a step above the current website!
 
 ## About the Site
 
-# Deployment
+### Deployment
 
 The site is under continuous deployment at 
 
 [https://elated-euclid-d0d69d.netlify.com/](https://elated-euclid-d0d69d.netlify.com/)
 
-# The basics:
+### The basics:
 
-* (almost) All the information on the site is populated from the RSS feed. This means _no action_ is needed on development end or content creation end to keep this site continually up to date. The site will automatically read those feeds and update. I haven’t learned back end yet, so I couldn’t even make a new content management system for you if I wanted.
+* This is a rebuild of [http://humanperformanceoutliers.libsyn.com](http://humanperformanceoutliers.libsyn.com)
+
+* Almost all the information on the site is populated from the RSS feed. This means _no action_ is needed on development end or content creation end to keep this site continually up to date. The site will automatically read those feeds and update. I haven’t learned back end yet, so I couldn’t even make a new content management system for you if I wanted.
 
 * The show notes are fragile. Some of the content that is attached to some of the episodes does not display. This is the result of a compromise between my ability and keeping the site clean and neat. If you like the site and want to use it, the best way to get the meta data out with it is to include links in paragraph from. So, say something like “Dr. XYZ can be reached at @twitterHandle ” all in one line, and do not use a new paragraph with a link like: 
 >	
@@ -33,7 +35,7 @@ The site is under continuous deployment at
 >	@twitterHandle
 >
 
-# Future Feature List:
+### Future Feature List:
 
 * Improved reading of links in show notes.
 * More tagging incorporation.
