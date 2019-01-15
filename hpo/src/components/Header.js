@@ -12,14 +12,12 @@ const HeaderWrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	background: rgba(fff, fff, fff, 0.5);
-	/* position: fixed; */
 	top: 0%;
 	left: 0%;
 	right: 0%;
 	text-align: center;
 	border-bottom: none;
 	z-index: 10;
-	/* box-shadow: 0px 0px 3px 0px #ccc; */
 `;
 
 const Title = styled.h1`
@@ -35,14 +33,14 @@ const Title = styled.h1`
 	}
 
 	@media (max-width: 639px) {
-		font-size: 3rem;
 		margin: 15px;
 		margin-bottom: 0px;
 	}
-	@media (max-width: 469px) {
-		font-size: 2rem;
+	@media (max-width: 445px) {
+		font-size: 3rem;
 		margin: 5px;
 		margin-bottom: 0px;
+		line-height: 35px;
 	}
 `;
 
@@ -52,13 +50,6 @@ const Nav = styled.nav`
 	justify-content: space-around;
 	flex-wrap: wrap;
 	margin-bottom: 5px;
-
-	@media (max-width: 639px) {
-		margin-bottom: 0px;
-	}
-	@media (max-width: 469px) {
-		margin: 0px;
-	}
 `;
 
 const NavItem = styled.a`
@@ -68,9 +59,6 @@ const NavItem = styled.a`
 	:hover {
 		color: #777;
 		cursor: pointer;
-	}
-	@media (max-width: 469px) {
-		margin: 3px;
 	}
 `;
 

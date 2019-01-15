@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 
 export const FullDiv = styled.div`
-	position: absolute;
+	position: fixed;
 	top: 0%;
 	bottom: 0%;
 	left: 0%;

@@ -9,24 +9,8 @@ export const MainViewWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	/* margin-top: 150px; */
+	align-items: center;
 	padding: 0 10px;
-
-	@media (max-width: 720px) {
-		/* margin-top: 200px; */
-	}
-	@media (max-width: 639px) {
-		/* margin-top: 120px; */
-	}
-	@media (max-width: 533px) {
-		/* margin-top: 175px; */
-	}
-	@media (max-width: 469px) {
-		/* margin-top: 100px; */
-	}
-	@media (max-width: 345px) {
-		/* margin-top: 150px; */
-	}
 `;
 
 const ListMenu = styled.form`
@@ -45,12 +29,22 @@ const FormInput = styled.input`
 	width: 20%;
 	min-width: 250px;
 	margin: 15px;
+	text-align: center;
 `;
 
 const ListContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+`;
+
+const DividerLine = styled.div`
+	width: 100px;
+	border: .5px solid rgba(100, 100, 100, 0.1);;
+`;
+
+const BadSearch = styled.div`
+	margin: 15px;
 `;
 
 class ListView extends Component {
@@ -84,6 +78,7 @@ class ListView extends Component {
 			return <Loading> Loading Podcasts...</Loading>;
 		return (
 			<MainViewWrapper>
+				<DividerLine/>
 				<ListMenu>
 					<FormInput
 						placeholder='Fitler by Keyword(s)'
@@ -93,6 +88,7 @@ class ListView extends Component {
 						onChange={this.handleChange}
 					/>
 				</ListMenu>
+				<DividerLine/>
 				<ListContainer>
 					{this.filterPodcasts().length ? (
 						this.filterPodcasts().map(ep => (
@@ -103,9 +99,9 @@ class ListView extends Component {
 							/>
 						))
 					) : (
-						<div>
+						<BadSearch>
 							No Matches. Consider broadening your search...
-						</div>
+						</BadSearch>
 					)}
 				</ListContainer>
 			</MainViewWrapper>
