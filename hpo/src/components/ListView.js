@@ -9,31 +9,24 @@ export const MainViewWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-top: 145px;
+	/* margin-top: 150px; */
 	padding: 0 10px;
-	
-	@media (max-width: 887px) {
-		margin-top: 200px;
-	}
-	@media (max-width: 783px){
-		margin-top: 150px;
-	}
-	@media (max-width: 720px){
-		margin-top: 200px;
+
+	@media (max-width: 720px) {
+		/* margin-top: 200px; */
 	}
 	@media (max-width: 639px) {
-		margin-top: 120px;
+		/* margin-top: 120px; */
 	}
 	@media (max-width: 533px) {
-		margin-top: 175px;
+		/* margin-top: 175px; */
 	}
 	@media (max-width: 469px) {
-		margin-top: 100px;
+		/* margin-top: 100px; */
 	}
 	@media (max-width: 345px) {
-		margin-top: 150px;
+		/* margin-top: 150px; */
 	}
-	
 `;
 
 const ListMenu = styled.form`
@@ -93,7 +86,7 @@ class ListView extends Component {
 			<MainViewWrapper>
 				<ListMenu>
 					<FormInput
-						placeholder='Fitler by Keyword'
+						placeholder='Fitler by Keyword(s)'
 						value={this.state.filter}
 						type='text'
 						name='filter'

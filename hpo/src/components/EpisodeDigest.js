@@ -4,10 +4,8 @@ import {Link} from 'react-router-dom';
 
 const DigestWrapper = styled(Link)`
 	border: none;
-	width: 20%;
+	max-width: 22%;
 	margin: 15px;
-	min-width: 225px;
-	max-width: 300px;
 	padding: 15px;
 	text-decoration: none;
 	color: black;
@@ -15,16 +13,21 @@ const DigestWrapper = styled(Link)`
 	box-shadow: 0px 1px 2px 0px #ccc;
 	transition: all 0.2s ease-in-out;
 	overflow: hidden;
+
 	:hover {
 		transform: scale(1.01);
 	}
-	@media (max-width: 784px) {
-		width: 45%;
-		max-width: none;
+	@media (max-width: 1040px) {
+		max-width: 30%;
 	}
-	@media (max-width: 618px) {
-		width: 95%;
-		max-width: none;
+	@media (max-width: 920px) {
+		max-width: 25%;
+	}
+	@media (max-width: 850px) {
+		max-width: 45%;
+	}
+	@media (max-width: 620px) {
+		max-width: 85%;
 	}
 `;
 
@@ -33,7 +36,6 @@ const Title = styled.h2`
 	padding-bottom: 5px;
 	text-align: center;
 	color: #000033;
-	
 `;
 
 export const Date = styled.div`
@@ -43,7 +45,6 @@ export const Date = styled.div`
 `;
 
 class EpisodeDigest extends Component {
-
 	render() {
 		return (
 			<DigestWrapper
@@ -57,16 +58,19 @@ class EpisodeDigest extends Component {
 				{this.props.episode.hasOwnProperty('itunes:subtitle') ? (
 					<div>
 						...
-						{this.props.episode['itunes:subtitle']['#cdata'].slice(
-							123,
-							210
-						).split('\\').join('') }
+						{this.props.episode['itunes:subtitle']['#cdata']
+							.slice(123, 210)
+							.split('\\')
+							.join('')}
 						...
 					</div>
 				) : (
 					<div>
 						...
-						{this.props.episode['itunes:summary'].slice(123, 210).split('\\').join('') }
+						{this.props.episode['itunes:summary']
+							.slice(123, 210)
+							.split('\\')
+							.join('')}
 						...
 					</div>
 				)}

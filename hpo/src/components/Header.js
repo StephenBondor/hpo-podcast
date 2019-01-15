@@ -11,21 +11,21 @@ const HeaderWrapper = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	background: white;
-	position: fixed;
+	background: rgba(fff, fff, fff, 0.5);
+	/* position: fixed; */
 	top: 0%;
 	left: 0%;
 	right: 0%;
 	text-align: center;
 	border-bottom: none;
 	z-index: 10;
-	box-shadow: 0px 0px 3px 0px #ccc;
+	/* box-shadow: 0px 0px 3px 0px #ccc; */
 `;
 
 const Title = styled.h1`
 	color: #000033;
-	font-size: 5rem;
-	margin: 25px;
+	font-size: 4rem;
+	margin: 20px;
 	margin-bottom: 5px;
 	text-decoration: none;
 	line-height: 50px;
@@ -33,9 +33,7 @@ const Title = styled.h1`
 	:hover {
 		color: #777;
 	}
-	@media (max-width: 783px) {
-		font-size: 4rem;
-	}
+
 	@media (max-width: 639px) {
 		font-size: 3rem;
 		margin: 15px;
@@ -53,7 +51,7 @@ const Nav = styled.nav`
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 
 	@media (max-width: 639px) {
 		margin-bottom: 0px;
